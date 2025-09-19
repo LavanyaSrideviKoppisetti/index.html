@@ -1,0 +1,14 @@
+import sqlite3
+
+conn = sqlite3.connect("books.db")
+c = conn.cursor()
+
+c.execute("SELECT * FROM books")
+print(c.fetchall())
+
+c.execute("DELETE FROM books WHERE title='Book 1'")
+c.execute("DELETE FROM books WHERE title='Book 2'")
+
+conn.commit()
+conn.close()
+exit()

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-Book Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+
+    <header>
+        <h1>My E-Book Library</h1>
+        <a href="{{ url_for('upload') }}">Upload New Book</a>
+    </header>
+
+
+    <main id="book-list">
+        {% for book in books %}
+        <div class="book">
+            <img src="{{ book.cover }}" alt="{{ book.title }}">
+            <h3>{{ book.title }}</h3>
+            <button onclick="openPDF('{{ book.file }}')">Read Online</button>
+            <a href="{{ book.file }}" download>Download</a>
+        </div>
+        {% endfor %}
+    </main>
+
+    
+    <div id="pdfModal" class="modal">
+        <span class="close" id="closeModal">&times;</span>
+        <iframe id="pdfViewer" src="" frameborder="0"></iframe>
+    </div>
+
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

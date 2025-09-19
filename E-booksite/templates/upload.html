@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #09c457, #2575fc);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            border: 2px dashed #6a11cb;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        input[type="file"]:hover {
+            border-color: #2575fc;
+        }
+
+        button {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #2575fc;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            color: #6a11cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Upload a New Book</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <label for="book">Select Book (PDF):</label>
+            <input type="file" id="book" name="book" accept=".pdf" required>
+
+            <label for="cover">Select Cover Image (JPG/PNG):</label>
+            <input type="file" id="cover" name="cover" accept=".jpg,.jpeg,.png">
+
+            <button type="submit">Upload</button>
+        </form>
+        <a href="{{ url_for('index') }}" class="back-link">⬅ Back to Home</a>
+    </div>
+</body>
+</html>
